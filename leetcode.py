@@ -1,3 +1,4 @@
+# Day 1
 # 217. Contains Duplicate
 class Solution(object):
     def containsDuplicate(self, nums):
@@ -62,6 +63,7 @@ class Solution(object):
 
         return nums1
 
+# Day 2
 # 704. Binary Search
 class Solution(object):
     def search(self, nums, target):
@@ -125,6 +127,7 @@ class Solution(object):
         result.sort()
         return result
 
+# Day 3
 # 283. Move Zeroes
 class Solution(object):
     def moveZeroes(self, nums):
@@ -201,6 +204,7 @@ class Solution(object):
                 profit = prices[i] - first_stock
         return profit
 
+# Day 4
 # 344. Reverse String
 class Solution(object):
     def reverseString(self, s):
@@ -280,6 +284,7 @@ class Solution(object):
 
         return result
 
+# Day 5
 # 876. Middle of the Linked List
 # Definition for singly-linked list.
 # class ListNode(object):
