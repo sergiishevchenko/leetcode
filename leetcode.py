@@ -349,3 +349,54 @@ class Solution(object):
             if target in item:
                 counter = True
         return counter
+
+# 36. Valid Sudoku
+class Solution(object):
+    def isValidRow(self, board, row):
+        result = []
+        for i in range(len(board)):
+            if board[row][i] in result:
+                return False
+            elif board[row][i] != '.':
+                result.append(board[row][i])
+        return True
+
+    def isValidColumn(self, board, col):
+        result = []
+        for i in range(len(board)):
+            if board[i][col] in result:
+                return False
+            elif board[i][col] != '.':
+                result.append(board[i][col])
+        return True
+
+    def isValidSquare(self, board, row_in, col_in):
+        result = []
+        for row in range(3):
+            for col in range(3):
+                value = board[row_in+row][col_in+col]
+                if value in result:
+                    return False
+                elif value != '.':
+                    result.append(value)
+        return True
+
+    def isValidSudoku(self, board):
+        """
+        :type board: List[List[str]]
+        :rtype: bool
+        """
+        for row in range(len(board)):
+            if self.isValidRow(board, row) == False:
+                return False
+
+        for col in range(len(board)):
+            if self.isValidColumn(board, col) == False:
+                return False
+
+        for row in range(0,len(board),3):
+            for col in range(0,len(board),3):
+                if self.isValidSquare(board, row, col) == False:
+                    return False
+
+        return True
