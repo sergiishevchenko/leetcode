@@ -450,4 +450,20 @@ class Solution(object):
         for i in range(len(s)):
             if s.count(s[i]) == 1:
                 return i
-        return -1 
+        return -1
+
+# 383. Ransom Note
+class Solution(object):
+    def canConstruct(self, ransomNote, magazine):
+        """
+        :type ransomNote: str
+        :type magazine: str
+        :rtype: bool
+        """
+        for i in range(len(ransomNote)):
+            if magazine.count(ransomNote[i]) >= ransomNote.count(ransomNote[i]):
+                continue
+            else:
+                return False
+                break
+        return True
