@@ -439,3 +439,15 @@ class Solution(object):
             if s1 == sorted(s2[i:i+len(s1)]):
                 return True
         return False
+
+# 387. First Unique Character in a String
+class Solution(object):
+    def firstUniqChar(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        for i in range(len(s)):
+            if s.count(s[i]) == 1:
+                return i
+        return -1 
