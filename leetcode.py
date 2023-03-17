@@ -467,3 +467,18 @@ class Solution(object):
                 return False
                 break
         return True
+
+# 242. Valid Anagram
+class Solution(object):
+    def isAnagram(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        for i in range(len(s)):
+            if len(s) == len(t) and s.count(s[i]) == t.count(s[i]):
+                continue
+            else:
+                return False
+        return True
