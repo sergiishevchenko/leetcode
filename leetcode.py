@@ -482,3 +482,33 @@ class Solution(object):
             else:
                 return False
         return True
+
+# 733. Flood Fill
+class Solution(object):
+    def floodFill(self, image, sr, sc, color):
+        """
+        :type image: List[List[int]]
+        :type sr: int
+        :type sc: int
+        :type color: int
+        :rtype: List[List[int]]
+        """
+        image_len = len(image)
+        start_len = len(image[0])
+        target = image[sr][sc]
+        start = [(sr,sc)]
+        visited_images = set()
+        visited_images.add((sr,sc))
+        dirs = [(1,0),(0,1),(-1,0),(0,-1)]
+        while start:
+            curX,curY = start.pop(0)
+            image[curX][curY] = color
+            for dirX,dirY in dirs:
+                tmpX = curX + dirX
+                tmpY = curY + dirY
+                if 0 <= tmpX < image_len and 0 <= tmpY < start_len and image[tmpX][tmpY] == target:
+                    if (tmpX,tmpY) not in visited_images:
+                        visited_images.add((tmpX,tmpY))
+                        start.append((tmpX,tmpY))
+        return image
+
